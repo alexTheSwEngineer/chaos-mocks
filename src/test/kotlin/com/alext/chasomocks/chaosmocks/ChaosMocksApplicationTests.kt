@@ -1,10 +1,9 @@
 package com.alext.chasomocks.chaosmocks
 
-import org.junit.jupiter.api.Test
-import org.springframework.boot.test.context.SpringBootTest
+import org.junit.Test
 
-@SpringBootTest
-class ChaosMocksApplicationTests {
+class ChaosMocksExampleTests {
+
 
 	@Test
 	fun contextLoads() {
