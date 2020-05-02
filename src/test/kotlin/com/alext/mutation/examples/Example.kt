@@ -1,12 +1,12 @@
-package com.alext.chasomocks.chaosmocks.examples
+package com.alext.mutation.examples
 
 
+import com.alext.muitation.allCombinations
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
-import unit.com.neontrading.booking.mutations.allSingleMutations
-import unit.com.neontrading.booking.mutations.assertAllFailForMutations
+import com.alext.muitation.assertAllFailForMutations
 
-class PlainReverseExample {
+class MutationExtensionsExample {
 
     //obviously wrong add method:
     fun add(vararg operands: Int): Int {
@@ -35,12 +35,19 @@ class PlainReverseExample {
 
     @Test
     fun mutatingOperands_ProducesDiferentResultNotEqualToExpectedResultInNormalScenario() {
-        mutations.assertAllFailForMutations(allSingleMutations(),this::createMutatedInput)
+        mutations.assertAllFailForMutations(allCombinations(),this::createMutatedInput)
         {mutatedInput,mutationId->
+            println("Testing ${info(mutationId,mutatedInput)}")
 
             val result = add(*mutatedInput.toIntArray())
-            assertThat(result).isEqualTo(expectedResultOf6)
+
+            assertThat(result)
+                    .`as`(info(mutationId, mutatedInput))
+                    .isEqualTo(expectedResultOf6)
         }
     }
+
+    private fun info(mutationId: Set<Int>, mutatedInput: MutableList<Int>) =
+            "Given mutation ${mutationId.joinToString(", ")}: ${mutatedInput.joinToString(",")}"
 
 }

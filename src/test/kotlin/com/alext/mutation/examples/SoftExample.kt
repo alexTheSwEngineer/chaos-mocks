@@ -1,12 +1,13 @@
-package com.alext.chasomocks.chaosmocks.examples
+package com.alext.mutation.examples
 
 
+import com.alext.muitation.allCombinations
 import org.assertj.core.api.Assertions.assertThat
+import org.assertj.core.api.SoftAssertions
 import org.junit.Test
-import unit.com.neontrading.booking.mutations.allCombinations
-import unit.com.neontrading.booking.mutations.assertAllFailForMutations
+import com.alext.muitation.assertAllForMutations
 
-class MutationExtensionsExample {
+class MutationExtensionsExampleSoft {
 
     //obviously wrong add method:
     fun add(vararg operands: Int): Int {
@@ -16,6 +17,7 @@ class MutationExtensionsExample {
     private val operandsResultingIn6= listOf(1, 2, 3)
     private  var expectedResultOf6 = 6
     private val arbitraryMutation = 132
+
     private val mutations = listOf<(MutableList<Int>)->Unit>(
         { it[0] = it[0] + arbitraryMutation },
         { it[1] = it[1] + arbitraryMutation },
@@ -35,16 +37,20 @@ class MutationExtensionsExample {
 
     @Test
     fun mutatingOperands_ProducesDiferentResultNotEqualToExpectedResultInNormalScenario() {
-        mutations.assertAllFailForMutations(allCombinations(),this::createMutatedInput)
+        val softAssertions = SoftAssertions()
+        mutations.assertAllForMutations(allCombinations(),this::createMutatedInput)
         {mutatedInput,mutationId->
-            println("Testing ${info(mutationId,mutatedInput)}")
+
+            println("Testing info: ${info(mutationId, mutatedInput)}")
 
             val result = add(*mutatedInput.toIntArray())
 
-            assertThat(result)
-                    .`as`(info(mutationId, mutatedInput))
-                    .isEqualTo(expectedResultOf6)
+            softAssertions.assertThat(result)
+                          .`as`(info(mutationId, mutatedInput))
+                          .isNotEqualTo(expectedResultOf6)
+
         }
+        softAssertions.assertAll()
     }
 
     private fun info(mutationId: Set<Int>, mutatedInput: MutableList<Int>) =

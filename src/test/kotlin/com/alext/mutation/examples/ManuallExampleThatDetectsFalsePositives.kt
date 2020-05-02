@@ -1,4 +1,4 @@
-package com.alext.chasomocks.chaosmocks.examples
+package com.alext.mutation.examples
 
 
 import org.assertj.core.api.Assertions.assertThat
