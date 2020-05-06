@@ -8,13 +8,21 @@ import com.alext.muitation.assertAllFailForMutations
 
 class MutationExtensionsExample {
 
+    private val operandsResultingIn6= listOf(1, 2, 3)
+
+    private  var expectedResultOf6 = 6
     //obviously wrong add method:
     fun add(vararg operands: Int): Int {
         return 6
     }
 
-    private val operandsResultingIn6= listOf(1, 2, 3)
-    private  var expectedResultOf6 = 6
+
+    @Test
+    fun adding1_2_3resultsIn6() {
+        val result = add(*operandsResultingIn6.toIntArray())
+        assertThat(result).isEqualTo(expectedResultOf6)
+    }
+
     private val arbitraryMutation = 132
     private val mutations = listOf<(MutableList<Int>)->Unit>(
         { it[0] = it[0] + arbitraryMutation },
@@ -25,13 +33,6 @@ class MutationExtensionsExample {
         operandsResultingIn6.toMutableList().also {
             mutations.forEach {mutate->mutate(it) }
         }
-
-
-    @Test
-    fun adding1_2_3resultsIn6() {
-        val result = add(*operandsResultingIn6.toIntArray())
-        assertThat(result).isEqualTo(expectedResultOf6)
-    }
 
     @Test
     fun mutatingOperands_ProducesDiferentResultNotEqualToExpectedResultInNormalScenario() {

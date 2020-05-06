@@ -37,7 +37,7 @@ class MutationExstensionsTests {
         testCase.mutations.assertAllForMutations(testCase.combinator, testCase.inputCreator, testCase.assertion)
     }
 
-    @Test
+    @Test //A bit of dogfooding. This is a prime example of when not to use this library. The added complexity by far exceeds the benefits
     fun givenMutatedScenarioThatExpectsFailsFor2Mutations01and23_happyFlowAssertionsFail() {
         var callHistory = mutableListOf<Pair<String, Set<Int>>>()
         mutations.assertAllFailForMutations(allCombinationsExcept { it.contains(2) || it.contains(3) },
