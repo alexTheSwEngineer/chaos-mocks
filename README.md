@@ -1,13 +1,13 @@
 # Mutation testing extensions
 
 This is a very tiny framework that reduces the number of false positive unit tests. It will run a combination of provided mutations
-on a tests and expect it to fail.
+on tests and expect it to fail.
 
 * What is the problem being solved (why bother with this?????)
 * How to use this
 * Minimal example
 * Advanced setup FAQ and tricks
-* When to use it or not.
+* When to use it or not
 
 # What is the problem being solved:
 
@@ -116,8 +116,8 @@ Recipe for using this library in 3 simple steps:
                 { it[2] = it[2] + arbitraryMutation }
         )
     ```
-    In this example, if we apply any of the mutations to a mutable copy the original list ```operandsResultingIn6``` we will get
-    a new mutated list, (a mutated input to our test if you will) that should not equal to 6 when passed to the function add() (had that function been correct). 
+    In this example, if we apply any of the mutations to a mutable copy of the original list ```operandsResultingIn6``` we will get
+    a new mutated list, (a mutated input to our test, if you will) that should not equal to 6 when passed to the function add() (had that function been correct). 
  
 3. You will need a method that knows how to take a random list of mutations of the type of your choosing (in this example ```(MutableList<Int>) -> Unit```):
     ```kotlin
@@ -149,7 +149,7 @@ This mutation test below, will pass if and only if every mutation combination re
 ```
 
 # Advanced setup FAQ and tricks:
-* ## I want all the mutation scenarios to pass instead of the default state of things in which the framework expects all of them to fail. (Because of more complex custom assertions of course)
+* ## I want all the mutation scenarios to pass instead of the default state of things in which the framework expects all of them to fail. (Because of more complex custom assertions, of course)
 __Ask and ye shall receive:__ 
 use the ```assertAllForMutations``` instead of ```assertAllFailForMutations```.
  
