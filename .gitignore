@@ -21,6 +21,8 @@
 *.rar
 *.class
 
+settings.xml
+
 # Log file
 *.log
 
