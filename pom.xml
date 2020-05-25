@@ -4,7 +4,7 @@
 	<modelVersion>4.0.0</modelVersion>
 	<groupId>com.alext.unittesting</groupId>
 	<artifactId>mutations</artifactId>
-	<version>1.0.7</version>
+	<version>1.0.9</version>
 	<name>mutation</name>
 	<description>Demo project for lightweight mutation testing extensions</description>
 	<packaging>jar</packaging>
@@ -142,31 +142,13 @@
 								</manifest>
 							</archive>
 							<descriptorRefs>
-								<descriptorRef>jar-with-dependencies</descriptorRef>
+								<descriptorRef>full</descriptorRef>
 							</descriptorRefs>
 						</configuration>
 					</execution>
 				</executions>
 			</plugin>
 		</plugins>
-<!--		<plugins>-->
-<!--			<plugin>-->
-<!--				<groupId>org.jetbrains.kotlin</groupId>-->
-<!--				<artifactId>kotlin-maven-plugin</artifactId>-->
-<!--				<configuration>-->
-<!--					<args>-->
-<!--						<arg>-Xjsr305=strict</arg>-->
-<!--					</args>-->
-<!--				</configuration>-->
-<!--				<dependencies>-->
-<!--					<dependency>-->
-<!--						<groupId>org.jetbrains.kotlin</groupId>-->
-<!--						<artifactId>kotlin-maven-allopen</artifactId>-->
-<!--						<version>${kotlin.version}</version>-->
-<!--					</dependency>-->
-<!--				</dependencies>-->
-<!--			</plugin>-->
-<!--		</plugins>-->
 	</build>
 
 </project>
