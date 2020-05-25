@@ -1,11 +1,11 @@
 package com.alext.mutation.examples
 
 
-import com.alext.muitation.allCombinations
+import com.alext.mutation.allCombinations
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.SoftAssertions
 import org.junit.Test
-import com.alext.muitation.assertAllForMutations
+import com.alext.mutation.assertAllForMutations
 
 class MutationExtensionsExampleSoft {
 

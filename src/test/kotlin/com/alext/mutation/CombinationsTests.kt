@@ -1,6 +1,5 @@
 package com.alext.mutation
 
-import com.alext.muitation.*
 import org.assertj.core.api.Assertions.assertThat
 import org.assertj.core.api.SoftAssertions
 import org.junit.Test

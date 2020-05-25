@@ -1,10 +1,10 @@
 package com.alext.mutation.examples
 
 
-import com.alext.muitation.allCombinations
+import com.alext.mutation.allCombinations
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
-import com.alext.muitation.assertAllFailForMutations
+import com.alext.mutation.assertAllFailForMutations
 
 class MutationExtensionsExample {
 

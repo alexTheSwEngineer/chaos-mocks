@@ -87,6 +87,23 @@ This project automates the process above.
 
 # How to use this:
 
+Import the library from the free github repository:
+   ```xml
+        <repositories>
+                <repository>
+                    <id>github</id>
+                    <name>GitHub alextheswengineer Apache Maven Packages</name>
+                    <url>https://maven.pkg.github.com/alextheswengineer/kotlin-mutation-testing-exstensions</url>
+                </repository>
+        </repositories>
+
+        <dependency>
+            <groupId>com.alext.unittesting</groupId>
+            <artifactId>mutations</artifactId>
+            <version>1.0.7</version>
+        </dependency>
+    
+   ```
 Recipe for using this library in 3 simple steps:
 1. You will need a test that is passing, and that will be tested for false positives:
     ```kotlin

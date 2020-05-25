@@ -1,10 +1,7 @@
 package com.alext.mutation
 
-import com.alext.muitation.allCombinationsExcept
 import org.assertj.core.api.Assertions.assertThat
 import org.junit.Test
-import com.alext.muitation.assertAllFailForMutations
-import com.alext.muitation.assertAllForMutations
 
 
 class MutationExstensionsTests {
